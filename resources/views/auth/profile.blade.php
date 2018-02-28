@@ -1,6 +1,7 @@
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div class="container">
     <div class="row">
@@ -29,8 +30,7 @@
                     if (day < 10) {
                         day = '0' + day;
                     }
-                    if (minutes < 10)
-                    {
+                    if (minutes < 10) {
                         minutes = '0' + minutes;
                     }
                     if (seconds < 10) {
@@ -38,6 +38,7 @@
                     }
                     document.getElementById('timedisplay').innerHTML = day + '/' + month + '/' + year + "<br>" + hours + ':' + minutes + ':' + seconds;
                 }
+
                 setInterval(getDate, 0);
             </script>
 
@@ -47,16 +48,25 @@
 
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{Auth::user()-> name}}</h3>
+                    <h3 class="panel-title">Profile of user {{Auth::user()-> name}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class=" col-md-10 col-lg-10 ">
                             <table class="table table-user-information">
                                 <tbody>
-                                <tr><td>Email:</td><td>{{Auth::user()-> email}}</td></tr>
-                                <tr><td>Gender:</td><td>{{Auth::user()-> gender}}</td></tr>
-                                <tr><td>Age:</td><td>{{Auth::user()-> age}}</td></tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>{{Auth::user()-> email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender:</td>
+                                    <td>{{Auth::user()-> gender}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Age:</td>
+                                    <td>{{Auth::user()-> age}}</td>
+                                </tr>
 
                                 </tbody>
                             </table>
@@ -64,11 +74,29 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button"
-                       class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                    <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <span class="pull-left">
+                           <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal">Edit</button>
+                        <div id="myModal" class="modal fade">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header"><button class="close" type="button"
+                                                              data-dismiss="modal">×</button>
+                            <h4 class="modal-title">Edit profile of {{Auth::user()-> name}}</h4>
+                            </div>
+                             <p><b>Name:</b><br>
+                               <input type="text" size="40">
+                              </p>
+                                 <p><b>Gender:</b><br>
+                               <input type="text" size="40">
+                              </p>
+                                 <p><b>Age:</b><br>
+                               <input type="text" size="40">
+                              </p>
+                            <div class="modal-footer"><button class="btn btn-default" type="submit"
+                                                              data-dismiss="modal">Save</button></div>
+                            </div>
+                            </div>
+                            </div>
                         </span>
                 </div>
 

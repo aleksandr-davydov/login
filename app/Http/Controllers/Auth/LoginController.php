@@ -43,14 +43,14 @@ class LoginController extends Controller
     /**
      * Validate the user login request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return void
      */
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
             $this->username() => [ //Make an custom array
-                'required','string',
+                'required', 'string',
                 Rule::exists('users')->where(function ($query) { //create closure with query builder to check the users
                     $query->where('active', true); //where active column is true
                 })
