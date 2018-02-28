@@ -29,6 +29,10 @@
                     if (day < 10) {
                         day = '0' + day;
                     }
+                    if (minutes < 10)
+                    {
+                        minutes = '0' + minutes;
+                    }
                     if (seconds < 10) {
                         seconds = '0' + seconds;
                     }
@@ -51,7 +55,9 @@
                             <table class="table table-user-information">
                                 <tbody>
                                 <tr><td>Email:</td><td>{{Auth::user()-> email}}</td></tr>
-                                <tr><td>Registration date:</td><td>{{Auth::user()-> created_at}}</td></tr>
+                                <tr><td>Gender:</td><td>{{Auth::user()-> gender}}</td></tr>
+                                <tr><td>Age:</td><td>{{Auth::user()-> age}}</td></tr>
+
                                 </tbody>
                             </table>
                         </div>

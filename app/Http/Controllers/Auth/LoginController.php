@@ -29,6 +29,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/profile';
 
+
     /**
      * Create a new controller instance.
      *

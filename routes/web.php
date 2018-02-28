@@ -19,6 +19,8 @@ Route::get('auth/activate', 'Auth\ActivationController@activate')->name('auth.ac
 Route::get('auth/activate/resend', 'Auth\ActivationResendController@showResendForm')->name('auth.activate.resend');
 Route::post('auth/activate/resend', 'Auth\ActivationResendController@resend');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 Route::get('/profile', function () {
-    return view('auth.profile');
-});
+        return view('auth.profile');
+})->name('profile');

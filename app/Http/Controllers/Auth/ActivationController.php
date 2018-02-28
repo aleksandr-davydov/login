@@ -20,6 +20,6 @@ class ActivationController extends Controller
 
         Auth::loginUsingId($user->id);
 
-        return redirect()->route('home')->withSuccess('Activated! You\'re now signed in.');
+        return redirect()->route('profile')->withSuccess('Activated! You\'re now signed in.');
     }
 }
